@@ -1,21 +1,45 @@
 // ConsoleApplication1.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
+#include <iostream>
+#include "degreeChosen.h"
+#include "student.h"
+#include "roster.h"
+using namespace std; 
 
 const string studentData[] =
-
 { "A1,John,Smith,John1989@gm ail.com,20,30,35,40,SECURITY",
   "A2,Suzan,Erickson,Erickson_1990@gmailcom,19,50,30,40,NETWORK",
   "A3,Jack,Napoli,The_lawyer99yahoo.com,19,20,40,33,SOFTWARE",
   "A4,Erin,Black,Erin.black@comcast.net,22,50,58,40,SECURITY",
-  "A5,[firstname],[lastname],[emailaddress],[age], [numberofdaystocomplete3courses],SOFTWARE"
+  "A5,Isaac,Marinero,imarine@wgu.edu, 29, 45, 90, 125,SOFTWARE"
+  
 };
 
-#include <iostream>
-using namespace std; 
 
 int main()
 {
-    cout << "Hello World " << endl; 
+	Roster classRoster(5);
+	
+	//I want to note that I was able to make this run by overloading the original classRoster.add function. since I wanted the original array to be a global array
+	//but still follow the directions listed
+	for (int i = 0; i < 5; i++)
+	{
+		classRoster.add(studentData[i]); 
+	}
+
+	
+
+	classRoster.printAll(); 
+
+	classRoster.printAverageDaysInCourse("A1");
+	classRoster.printAverageDaysInCourse("A2");
+	classRoster.printAverageDaysInCourse("A3");
+	classRoster.printAverageDaysInCourse("A4");
+	classRoster.printAverageDaysInCourse("A5");
+
+
+	classRoster.printInvalidEmails(); 
+	
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
